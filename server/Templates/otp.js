@@ -130,9 +130,9 @@ exports.otpTemp = (otp) => {
         >
           Need help? Ask at
           <a
-            href="mailto:archisketch@gmail.com"
+            href="mailto:pratik.ashah676@gmail.com"
             style="color: #499fb6; text-decoration: none;"
-            >archisketch@gmail.com</a
+            >pratik.ashah676@gmail.com</a
           >
           or visit our
           <a

@@ -24,9 +24,9 @@ exports.otpGen = async (req, res) => {
                 message: "User already exist"
             })
         }
-        const otp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false });
+        const otp = await otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false });
 
-        const data = Otp.create({ email: email, otp: otp })
+        const data = await Otp.create({ email: email, otp: otp })
 
         return res.status(200).json({
             success: true,
@@ -48,7 +48,6 @@ exports.signUp = async (req, res) => {
             lastName,
             email,
             password,
-            pic,
             otp
         } = req.body
         // intial validations 
@@ -61,7 +60,7 @@ exports.signUp = async (req, res) => {
         // email validation
         const emailExist = await User.findOne({ email: email })
         if (emailExist) {
-            return res.status(402).json({
+            return res.status(409).json({
                 success: false,
                 message: "User already exist"
             })
@@ -84,7 +83,7 @@ exports.signUp = async (req, res) => {
         }
 
         // Encrypting the password
-        const hashPass = await bcrypt.hash(password, process.env.ROUNDS)
+        const hashPass = await bcrypt.hash(password, 10)
         if (!hashPass) {
             return res.status(500).json({
                 success: false,
@@ -95,7 +94,7 @@ exports.signUp = async (req, res) => {
         // Creating new user
         const imgUrl = `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`
 
-        const userData = User.create({
+        const userData = await User.create({
             firstName,
             lastName,
             email,
@@ -111,8 +110,9 @@ exports.signUp = async (req, res) => {
         })
 
     } catch (err) {
+        console.log(err)
         return res.status(500).json({
-            success: true,
+            success: false,
             message: "Server failed",
         })
     }
@@ -153,7 +153,6 @@ exports.login = async (req, res) => {
         }
         const options = {
             expiresIn: 3 * 24 * 60 * 60 * 1000,
-            httpOnly: true,
         }
         const token = await jwt.sign(payload, process.env.PRIVATE_KEY, options)
 
@@ -177,8 +176,9 @@ exports.login = async (req, res) => {
         })
 
     } catch (err) {
+        console.log(err)
         return res.status(500).json({
-            success: true,
+            success: false,
             message: "Server failed",
         })
     }
