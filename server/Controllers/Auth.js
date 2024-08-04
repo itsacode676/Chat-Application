@@ -152,7 +152,7 @@ exports.login = async (req, res) => {
             password: validUser.password,
         }
         const options = {
-            expiresIn: 3 * 24 * 60 * 60 * 1000,
+            expiresIn: 30 * 24 * 60 * 60 * 1000,
         }
         const token = await jwt.sign(payload, process.env.PRIVATE_KEY, options)
 
