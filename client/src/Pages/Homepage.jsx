@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import Button from "../Components/Reuseable/Button";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSignupData } from "../Slices/AuthSlice";
 import { otp } from "../Services/Operations/auth";
 import toast from "react-hot-toast";
@@ -19,6 +19,14 @@ const Homepage = () => {
   } = useForm();
 
   const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (token) {
+      navigate('/dashboard')
+    }
+  }, []);
+  
   function contoggle() {
     setConShow((prev) => !prev);
   }
@@ -35,7 +43,6 @@ const Homepage = () => {
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900 w-full min-h-screen px-10 py-10">
-
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">
         <a
           href="#"

@@ -48,7 +48,7 @@ export function signup(data) {
     }
 }
 
-export function login(data) {
+export function login(data , navigate) {
     return async (dispatch) => {
         dispatch(setLoading(true));
         try {
@@ -63,7 +63,9 @@ export function login(data) {
             dispatch(setUser(userData));
             dispatch(setToken(userData?.token));
             localStorage.setItem("token", JSON.stringify(userData?.token));
+            localStorage.setItem("user", JSON.stringify(userData));
             toast.success(response?.data?.message);
+            navigate('/')
         } catch (err) {
             toast.error(err?.response?.data?.message || err.message);
         } finally {

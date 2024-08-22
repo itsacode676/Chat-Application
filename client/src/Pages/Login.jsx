@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import Button from "../Components/Reuseable/Button";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../Services/Operations/auth";
 import Spinner from "../Components/Reuseable/Spinner"
@@ -11,6 +11,7 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const { loading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     handleSubmit,
     register,
@@ -22,7 +23,7 @@ const Login = () => {
   }
 
   function onSubmit(data) {
-    dispatch(login(data));
+    dispatch(login(data,navigate));
   }
 
   return loading ? (

@@ -1,17 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    loading:false
+    searchLoading:false,
+    profileLoading:true
 }
 
 const LoadingSlice = createSlice({
     name:"loading",
     initialState,
     reducers:{
-        setLoading(state,value){
-            state.loading = value.payload
+        setSearchLoading(state,value){
+            state.searchLoading = value.payload
+        },
+        setProfilLoading(state,value){
+            state.profileLoading = value.payload
         }
     }
-})
+});
 
-export {setLoading}
+export const {setSearchLoading , setProfilLoading} = LoadingSlice.actions;
+export default LoadingSlice.reducer
