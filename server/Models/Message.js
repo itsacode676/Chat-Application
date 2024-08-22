@@ -15,6 +15,10 @@ const messageSchema = mongoose.Schema(
             ref: "Chat",
             require: true,
         },
+        createdAt:{
+            type:Date,
+            default:Date.now()
+        }
     }, {
     timestamp: true
 }

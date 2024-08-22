@@ -16,11 +16,14 @@ const chatSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Messages"
     },
-    groupAdmin : {
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"User"
+    groupAdmin: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     },
-},{
-    timestamp:true
+    groupPic: {
+        type: String
+    }
+}, {
+    timestamp: true
 })
-module.exports = mongoose.model("Chat",chatSchema)
+module.exports = mongoose.model("Chat", chatSchema)

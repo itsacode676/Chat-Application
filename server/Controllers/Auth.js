@@ -151,12 +151,9 @@ exports.login = async (req, res) => {
             id: validUser._id,
             password: validUser.password,
         }
-        const options = {
-            expiresIn: 30 * 24 * 60 * 60 * 1000,
-        }
-        const token = await jwt.sign(payload, process.env.PRIVATE_KEY, options)
+        const token = await jwt.sign(payload, process.env.PRIVATE_KEY)
 
-        if(!token){
+        if (!token) {
             return res.status(500).json({
                 success: false,
                 message: "Server error"
@@ -166,12 +163,13 @@ exports.login = async (req, res) => {
         return res.status(200).json({
             success: true,
             message: "User got Authorized",
-            data : {
-                token : token ,
-                firstName : validUser.firstName,
-                lastName : validUser.lastName,
-                pic : validUser.pic,
-                email : validUser.email,
+            data: {
+                id:validUser._id,
+                token: token,
+                firstName: validUser.firstName,
+                lastName: validUser.lastName,
+                pic: validUser.pic,
+                email: validUser.email,
             }
         })
 
