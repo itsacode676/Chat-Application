@@ -47,7 +47,7 @@ exports.serachUser = async (req, res) => {
 exports.updateUser = async (req, res) => {
     try {
         const {  firstName, lastName } = req.body
-        const pic = req.files.pic
+        const pic = req?.files?.pic
         const { id } = req.payload
         if (!pic || !id || !firstName || !lastName) {
             return res.status(402).json({

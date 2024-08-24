@@ -87,7 +87,7 @@ exports.fetchChat = async (req, res) => {
             data: data
         })
     } catch (err) {
-        console.log(err)
+        console.log("CHAT ERR",err)
         return res.status(500).json({
             success: false,
             message: "Server error"
