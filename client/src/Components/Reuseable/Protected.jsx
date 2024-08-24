@@ -9,9 +9,6 @@ const Protected = ({ children }) => {
     if (!token || !user) {
       navigate("/");
     }
-    if (!token || !user) {
-      return null;
-    }
   }, []);
   return children;
 };
