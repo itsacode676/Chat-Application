@@ -7,6 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import { FiLogOut } from "react-icons/fi";
 import { setOpen } from "../../../Slices/DrawerSlice";
 import { setProfileModal, setLogoutModal } from "../../../Slices/ModalSlice";
+import logo from "../../../Assets/logo.png"
 const Header = () => {
   const [drop, setDrop] = useState(false);
   const { user } = useSelector((state) => state.auth);
@@ -43,8 +44,8 @@ const Header = () => {
           className="flex items-center mb-6 text-2xl mx-2 my-4 font-semibold text-white dark:text-white"
         >
           <img
-            className="w-8 h-8 mr-2"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+            className="w-10 h-10 mr-2"
+            src={logo}
             alt="logo"
           />
           Pigeon Post
