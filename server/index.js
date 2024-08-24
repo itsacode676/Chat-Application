@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(express.json())
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://pigeon-post-client.vercel.app",
     credentials: true
 }))
 
@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
 const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
-        origin: "http://localhost:5173",
+        origin: "https://pigeon-post-client.vercel.app",
     }
 
 })
