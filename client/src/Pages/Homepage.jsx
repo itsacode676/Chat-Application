@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSignupData } from "../Slices/AuthSlice";
 import { otp } from "../Services/Operations/auth";
 import toast from "react-hot-toast";
+import logo from "../Assets/logo.png"
 
 const Homepage = () => {
   const [show, setShow] = useState(false);
@@ -50,7 +51,7 @@ const Homepage = () => {
         >
           <img
             className="w-8 h-8 mr-2"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+            src={logo}
             alt="logo"
           />
           Pigeon Post

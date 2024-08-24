@@ -6,6 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../Services/Operations/auth";
 import Spinner from "../Components/Reuseable/Spinner"
+import logo from "../Assets/logo.png"
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -37,7 +38,7 @@ const Login = () => {
         >
           <img
             className="w-8 h-8 mr-2"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+            src={logo}
             alt="logo"
           />
           Pigeon Post
