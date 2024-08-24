@@ -1,16 +1,20 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react'
+import {useNavigate} from "react-router-dom"
+function Protected (props) {
+    const{ Component } = props
+    const navigate = useNavigate()
+    useEffect(()=>{
+        const token = localStorage.getItem("token")
+        if(!token){
+            navigate("/login")
+        }
+    },[])
 
-const Protected = ({ children }) => {
-  const { token, user } = useSelector((state) => state.auth);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!token || !user) {
-      navigate("/");
-    }
-  }, []);
-  return children;
-};
+  return (
+    <div>
+        <Component/>
+    </div>
+  )
+}
 
-export default Protected;
+export default Protected

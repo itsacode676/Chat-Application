@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(express.json())
 
 app.use(cors({
-    origin: "https://pigeon-post-client.vercel.app",
+    origin: "https://chat-client-pi.vercel.app",
     credentials: true
 }))
 
@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
 const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
-        origin: "https://pigeon-post-client.vercel.app",
+        origin: "https://chat-client-pi.vercel.app",
     }
 
 })
