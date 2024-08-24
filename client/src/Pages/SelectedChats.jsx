@@ -13,7 +13,7 @@ const SelectedChats = () => {
   const {notifications} = useSelector(state => state.message)
   const { selectedChat } = useSelector((state) => state.chat);
   const [socketConnected, setSocketConnected] = useState(false);
-  const ENDPOINT = "http://localhost:8000";
+  const ENDPOINT = "https://chat-application-8wgh.onrender.com";
   const socketRef = useRef(null); // Use useRef to store the socket instance
   const { chatId } = useParams();
 
