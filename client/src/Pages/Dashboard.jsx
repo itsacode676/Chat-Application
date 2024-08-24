@@ -12,7 +12,7 @@ const Dashboard = () => {
   return (
     <div className="h-full w-full flex flex-col ">
       <Header />
-      <div className="w-full flex">
+      <div className="w-full flex h-full">
         <div className="w-[50%]">
           <SideSection />
           <ProfileModal />

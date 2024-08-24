@@ -8,6 +8,7 @@ import { RxCross1 } from "react-icons/rx";
 import { setLogoutModal } from "../../Slices/ModalSlice";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { setToken } from "../../Slices/AuthSlice";
 
 const style = {
   position: "absolute",
@@ -30,6 +31,7 @@ export default function LogoutModal() {
 
   function LogOut() {
     localStorage.clear()
+    dispatch(setToken(null))
     dispatch(setLogoutModal(false))
     navigate("/login");
   }

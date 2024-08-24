@@ -52,7 +52,7 @@ export default function MessageModal() {
   function leaveGrp(data) {
     const newData = {
       userId: user.id,
-      groupId: selectedChat._id,
+      groupId: selectedChat?._id,
     };
     dispatch(removeFromGroup(newData, user.token));
   }
@@ -89,8 +89,8 @@ export default function MessageModal() {
                       value={rename.groupName}
                     />
                   </div>
-                  {selectedChat.groupAdmin._id == user.id && <GroupMembers />}
-                  {selectedChat.groupAdmin._id == user.id && (
+                  {selectedChat.groupAdmin?._id == user.id && <GroupMembers />}
+                  {selectedChat.groupAdmin?._id == user.id && (
                     <div className="flex flex-col  gap-2  w-full">
                       <div className="w-full">
                         <label

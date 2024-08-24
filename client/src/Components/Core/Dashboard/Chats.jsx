@@ -59,7 +59,7 @@ const Chats = () => {
                 {getName(chat, user)}
               </div>
               <div className="text-black">
-                {chat?.latestMessage ||
+                {chat?.latestMessage?.content ||
                   `Welcome to PigeonPost! ${getName(chat)}`}
               </div>
             </div>
