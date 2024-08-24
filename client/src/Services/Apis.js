@@ -1,4 +1,4 @@
-const base_point = "http://localhost:8000/"
+const base_point = "https://chat-application-8wgh.onrender.com/"
 const auth_point = `${base_point}api/v1/auth`
 const chat_point = `${base_point}api/v1/chat`
 const user_point = `${base_point}api/v1/user`

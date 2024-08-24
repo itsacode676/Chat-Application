@@ -15,7 +15,7 @@ export function searchSender(data, token) {
         try {
             console.log(data)
             const response = await apiConnector("GET",
-                `http://localhost:8000/api/v1/user/find?search=${data}`, null, {
+                `https://chat-application-8wgh.onrender.com/api/v1/user/find?search=${data}`, null, {
                 Authorization: `Bearer ${token}`
             })
             if (!response?.data?.success) {
