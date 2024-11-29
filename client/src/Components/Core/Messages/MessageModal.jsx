@@ -89,8 +89,8 @@ export default function MessageModal() {
                       value={rename.groupName}
                     />
                   </div>
-                  {selectedChat.groupAdmin?._id == user.id && <GroupMembers />}
-                  {selectedChat.groupAdmin?._id == user.id && (
+                  {selectedChat?.groupAdmin?._id == user.id && <GroupMembers />}
+                  {selectedChat?.groupAdmin?._id == user.id && (
                     <div className="flex flex-col  gap-2  w-full">
                       <div className="w-full">
                         <label
